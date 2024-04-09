@@ -1,0 +1,50 @@
+import random
+
+def get_random_response(responses):
+    return random.choice(responses)
+
+def chatbot_response(input_message):
+    # Convert input message to lowercase for easier comparison
+    input_message = input_message.lower()
+
+    # Rule-based responses
+    if "hello" in input_message:
+        responses = ["Hello! How can I assist you today?", "Hi there!", "Hey, what's up?"]
+        return get_random_response(responses)
+    elif "how are you" in input_message:
+        responses = ["I'm just a bot, but I'm doing well. How about you?", "I'm good, thank you!"]
+        return get_random_response(responses)
+    elif "what is your name" in input_message:
+        responses = ["My name is ChatBot. How can I help you?", "I'm ChatBot, nice to meet you!"]
+        return get_random_response(responses)
+    elif "what can you do" in input_message or "help" in input_message:
+        responses = ["I can provide information, answer questions, and engage in basic conversation. Feel free to ask me anything!",
+                     "I'm here to assist you with whatever you need!"]
+        return get_random_response(responses)
+    elif "bye" in input_message or "goodbye" in input_message:
+        responses = ["Goodbye! Have a great day!", "See you later!", "Farewell!"]
+        return get_random_response(responses)
+    elif "thanks" in input_message or "thank you" in input_message:
+        responses = ["You're welcome!", "No problem!", "Glad I could help!"]
+        return get_random_response(responses)
+    elif "tell me a joke" in input_message:
+        responses = ["Why don't scientists trust atoms? Because they make up everything!",
+                     "I'm reading a book on anti-gravity. It's impossible to put down!",
+                     "Did you hear about the mathematician who’s afraid of negative numbers? He’ll stop at nothing to avoid them!"]
+        return get_random_response(responses)
+    else:
+        responses = ["I'm sorry, I don't understand. Could you please rephrase?",
+                     "Hmm, I'm not sure what you mean. Can you provide more details?",
+                     "I'm still learning. Can you ask me something else?"]
+        return get_random_response(responses)
+
+# Example usage
+print("ChatBot: Hello! How can I assist you today?")
+while True:
+    user_input = input("You: ")
+    if user_input.lower() == "exit":
+        print("Chat ended.")
+        break
+    else:
+        bot_response = chatbot_response(user_input)
+        print("ChatBot:", bot_response)
